@@ -1,0 +1,199 @@
+/* ==========================================================
+   style.css — theme for index.html
+   Edit the colors and fonts in :root to restyle everything.
+   ========================================================== */
+
+:root {
+  --bg: #eef3f2;
+  --surface: #ffffff;
+  --text: #12302d;
+  --muted: #4f6b67;
+  --accent: #0b7a75;
+  --accent-hover: #085e5a;
+  --highlight: #ffb703;
+  --border: #d3e0de;
+
+  --font-heading: Georgia, "Times New Roman", serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --radius: 14px;
+  --shadow: 0 10px 30px rgba(18, 48, 45, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0e1d1c;
+    --surface: #152928;
+    --text: #e6f2f0;
+    --muted: #9bb8b4;
+    --accent: #3cc4bb;
+    --accent-hover: #6fd8d1;
+    --border: #254240;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  }
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a:focus-visible,
+.btn:focus-visible {
+  outline: 3px solid var(--highlight);
+  outline-offset: 3px;
+}
+
+/* ---------- Header / navigation ---------- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+nav {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: -0.01em;
+}
+
+nav ul { list-style: none; display: flex; gap: 28px; }
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+  padding-bottom: 4px;
+  background: linear-gradient(var(--highlight), var(--highlight)) no-repeat 0 100% / 0 3px;
+  transition: color 0.2s, background-size 0.25s;
+}
+
+nav a:hover,
+nav a:focus-visible {
+  color: var(--text);
+  background-size: 100% 3px;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  max-width: 1040px;
+  margin: 48px auto 56px;
+  padding: 88px 48px;
+  border-radius: calc(var(--radius) * 1.6);
+  background:
+    radial-gradient(circle at 90% 15%, var(--highlight) 0 70px, transparent 71px),
+    radial-gradient(circle at 80% 110%, rgba(255, 255, 255, 0.14) 0 220px, transparent 221px),
+    var(--accent);
+  color: #ffffff;
+  box-shadow: var(--shadow);
+}
+
+.hero h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  max-width: 14ch;
+}
+
+.hero p {
+  margin: 20px 0 32px;
+  max-width: 48ch;
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  background: var(--highlight);
+  color: #12302d;
+  padding: 14px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active { transform: translateY(0); }
+
+/* ---------- Features ---------- */
+.features {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 24px 88px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.feature {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 5px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s;
+}
+
+.feature:hover { transform: translateY(-4px); }
+
+.feature h2 {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  margin-bottom: 10px;
+}
+
+.feature p { color: var(--muted); }
+
+/* ---------- Footer ---------- */
+footer {
+  text-align: center;
+  padding: 32px 24px;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  font-size: 0.92rem;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 640px) {
+  nav { flex-direction: column; gap: 12px; }
+  nav ul { gap: 20px; }
+
+  .hero {
+    margin: 24px 16px 40px;
+    padding: 56px 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
