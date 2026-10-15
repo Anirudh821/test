@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Web Page</title>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --surface: #ffffff;
+      --text: #1d2433;
+      --muted: #5b6577;
+      --accent: #2f5bea;
+      --border: #e1e6ee;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+    nav {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo { font-weight: 700; font-size: 1.2rem; }
+    nav ul { list-style: none; display: flex; gap: 24px; }
+    nav a { color: var(--muted); text-decoration: none; }
+    nav a:hover, nav a:focus-visible { color: var(--accent); }
+
+    /* Hero */
+    .hero {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 96px 24px;
+    }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.15; max-width: 16ch; }
+    .hero p { margin: 16px 0 28px; max-width: 52ch; color: var(--muted); font-size: 1.1rem; }
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .btn:hover, .btn:focus-visible { background: #1f43c4; }
+
+    /* Features */
+    .features {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px 72px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .feature {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px;
+    }
+    .feature h2 { font-size: 1.1rem; margin-bottom: 8px; }
+    .feature p { color: var(--muted); }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 560px) {
+      nav { flex-direction: column; gap: 12px; }
+      .hero { padding: 56px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <span class="logo">MySite</span>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <h1>Welcome to my web page</h1>
+      <p>This is a simple starting point. Change the text, colors, and layout to make it your own.</p>
+      <a class="btn" href="#features">Get started</a>
+    </section>
+
+    <section class="features" id="features">
+      <div class="feature">
+        <h2>Easy to edit</h2>
+        <p>Plain HTML and CSS in one file. No tools or setup needed.</p>
+      </div>
+      <div class="feature">
+        <h2>Mobile friendly</h2>
+        <p>The layout adjusts automatically to phones, tablets, and desktops.</p>
+      </div>
+      <div class="feature">
+        <h2>Ready to grow</h2>
+        <p>Add new sections, images, or links whenever you need them.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <p>&copy; 2026 MySite. Contact: hello@example.com</p>
+  </footer>
+
+</body>
+</html>
